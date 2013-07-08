@@ -1,0 +1,20 @@
+en:
+  login_without_ichain: "Standard Sign In"
+
+  ichain:
+    user_not_found: "%{user} was authenticated but needs to be created in Redmine first."
+    plugin_settings: "Redmine iChain Plugin Settings"
+    enabled: "Enabled"
+    keep_standard_login: "Keep Standard Login"
+    auto_create_users: "Auto Create Users"
+    auto_update_users: "Auto Update Users"
+    auto_user_attributes_map: "Auto User Attributes Map"
+    auto_user_attributes_map_description: "Should follow the following query string format:"
+    auto_user_attributes_map_description2: "At a minimum it should include <code>firstname</code>, <code>lastname</code>, <code>mail</code>"
+    logout_of_ichain_on_logout: "Logout of iChain on Sign out"
+    ichain_settings: "iChain Settings"
+    base_url: "iChain Base URL"
+    username_header: "HTTP header containing username"
+    fake_ichain_server: "Simulate a fake iChain server"
+    fake_username: "Username for fake mode"
+    fake_auto_user_attributes_map: "Attributes for fake mode"

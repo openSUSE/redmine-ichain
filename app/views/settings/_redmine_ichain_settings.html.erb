@@ -1,0 +1,69 @@
+<% @defaults = Redmine::Plugin::registered_plugins[:redmine_ichain].settings[:default] %>
+<% def get_setting_val(name)
+  val = !@settings[name].nil? ? @settings[name] : @defaults[name.to_sym]
+  val = true if val === "true"
+  val = false if val === "false"
+  val
+end %>
+<fieldset>
+    <legend><%= l("ichain.plugin_settings") %></legend>
+    <p>
+        <label for="settings_enabled"><%= l("ichain.enabled") %></label>
+        <%= hidden_field_tag 'settings[enabled]', "false" %>
+        <%= check_box_tag 'settings[enabled]', "true", get_setting_val('enabled') %>
+    </p>
+    <p>
+        <label for="settings_keep_standard_login"><%= l("ichain.keep_standard_login") %></label>
+        <%= hidden_field_tag 'settings[keep_standard_login]', "false" %>
+        <%= check_box_tag 'settings[keep_standard_login]', "true", get_setting_val('keep_standard_login')  %>
+    </p>
+    <p>
+        <label for="settings_auto_create_users"><%= l("ichain.auto_create_users") %></label>
+        <%= hidden_field_tag 'settings[auto_create_users]', "false" %>
+        <%= check_box_tag 'settings[auto_create_users]', "true", get_setting_val('auto_create_users') %>
+    </p>
+    <p>
+        <label for="settings_auto_update_users"><%= l("ichain.auto_update_users") %></label>
+        <%= hidden_field_tag 'settings[auto_update_users]', "false" %>
+        <%= check_box_tag 'settings[auto_update_users]', "true", get_setting_val('auto_update_users') %>
+    </p>
+    <p>
+        <label for="settings_auto_user_attributes_map"><%= l("ichain.auto_user_attributes_map") %></label>
+        <%= text_field_tag 'settings[auto_user_attributes_map]', get_setting_val('auto_user_attributes_map') %>
+    </p>
+    <p><%= l("ichain.auto_user_attributes_map_description").html_safe %></p>
+    <p><code>firstname=HTTP_X_NAME&amp;lastname=HTTP_X_LASTNAME&amp;mail=HTTP_X_EMAIL</code></p>
+    <p><%= l("ichain.auto_user_attributes_map_description2").html_safe %></p>
+    <p>
+        <label for="settings_logout_of_ichain_on_logout"><%= l("ichain.logout_of_ichain_on_logout") %></label>
+        <%= hidden_field_tag 'settings[logout_of_ichain_on_logout]', "false" %>
+        <%= check_box_tag 'settings[logout_of_ichain_on_logout]', "true", get_setting_val('logout_of_ichain_on_logout') %>
+    </p>
+</fieldset>
+<fieldset>
+    <legend><%= l("ichain.ichain_settings") %></legend>
+    <p>
+        <label for="settings_base_url"><%= l("ichain.base_url") %></label>
+        <%= text_field_tag 'settings[base_url]', get_setting_val('base_url') %>
+    </p>
+    <p>
+        <label for="settings_username_header"><%= l("ichain.username_header") %></label>
+        <%= text_field_tag 'settings[username_header]', get_setting_val('username_header') %>
+    </p>
+    <p>
+        <label for="settings_fake_ichain_server"><%= l("ichain.fake_ichain_server") %></label>
+        <%= hidden_field_tag 'settings[fake_ichain_server]', "false" %>
+        <%= check_box_tag 'settings[fake_ichain_server]', "true", get_setting_val('fake_ichain_server') %>
+    </p>
+    <p>
+        <label for="settings_fake_username"><%= l("ichain.fake_username") %></label>
+        <%= text_field_tag 'settings[fake_username]', get_setting_val('fake_username') %>
+    </p>
+    <p>
+        <label for="settings_fake_auto_user_attributes_map"><%= l("ichain.fake_auto_user_attributes_map") %></label>
+        <%= text_field_tag 'settings[fake_auto_user_attributes_map]', get_setting_val('fake_auto_user_attributes_map') %>
+    </p>
+    <p><%= l("ichain.auto_user_attributes_map_description").html_safe %></p>
+    <p><code>firstname=John&amp;lastname=Doe&amp;mail=jdoe@example.com</code></p>
+    <p><%= l("ichain.auto_user_attributes_map_description2").html_safe %></p>
+</fieldset>

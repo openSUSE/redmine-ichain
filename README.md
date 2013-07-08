@@ -1,4 +1,4 @@
-# Redmine RubyCAS
+# Redmine iChain
 
 A Plugin for enabling iChain authentication in Redmine 2.
 Heavily inspired by Redmine RubyCas by Brandon Aaron 

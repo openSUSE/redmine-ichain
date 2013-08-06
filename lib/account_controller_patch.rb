@@ -22,7 +22,7 @@ module AccountControllerPatch
             user = User.find_or_initialize_by_login(proxy_user)
             if user.new_record?
               if RedmineIChain.setting("auto_create_users") == "true"
-                user.attributes = RedmineIChain.extra_user_attributes
+                user.attributes = RedmineIChain.extra_user_attributes(request)
                 user.status = User::STATUS_REGISTERED
                 register_automatically(user) do
                   onthefly_creation_failed(user)
@@ -36,7 +36,7 @@ module AccountControllerPatch
             else
               if user.active?
                 if RedmineIChain.setting("auto_update_users") == "true"
-                  user.update_attributes(RedmineIChain.extra_user_attributes)
+                  user.update_attributes RedmineIChain.extra_user_attributes(request)
                 end
                 successful_authentication(user)
               else

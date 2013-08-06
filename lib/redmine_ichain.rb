@@ -27,7 +27,7 @@ module RedmineIChain
     setting("fake_ichain_server") == "true"
   end
 
-  def extra_user_attributes
+  def extra_user_attributes(request)
     attrs = {}
     if fake?
       setting("fake_auto_user_attributes_map").scan(/((\w+)=([^&]+))&?/) do |match|
@@ -35,7 +35,7 @@ module RedmineIChain
       end
     else
       setting("auto_user_attributes_map").scan(/((\w+)=([^&]+))&?/) do |match|
-        attrs[match[1]] = ActionDispatch::Request.env[match[2]]
+        attrs[match[1]] = request.env[match[2]]
       end
     end
     attrs

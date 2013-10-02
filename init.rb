@@ -1,5 +1,6 @@
 require 'redmine_ichain'
 require 'account_controller_patch'
+require 'application_controller_patch'
 
 Redmine::Plugin.register :redmine_ichain do
   name 'Redmine iChain plugin'
@@ -33,6 +34,10 @@ Redmine::Plugin.register :redmine_ichain do
 end
 
 ActionDispatch::Callbacks.to_prepare do
+  # Patch account controller
   require_dependency 'account_controller'
   AccountController.send(:include, AccountControllerPatch)
+  # Patch application controller
+  require_dependency 'application_controller'
+  ApplicationController.send(:include, ApplicationControllerPatch)
 end

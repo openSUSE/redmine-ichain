@@ -6,7 +6,7 @@ Redmine::Plugin.register :redmine_ichain do
   name 'Redmine iChain plugin'
   author 'Ancor Gonzalez Sosa'
   description 'This is a plugin for Redmine 2+ enabling authentication through iChain. Strongly inspired by https://github.com/brandonaaron/redmine_rubycas/ (thanks Brandon).'
-  version '0.0.2'
+  version '0.0.3'
   url ''
   author_url ''
 

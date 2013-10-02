@@ -17,7 +17,7 @@ module AccountControllerPatch
             proxy_user = request.env[RedmineIChain.setting("username_header")]
           end
           if proxy_user.blank?
-            redirect_to RedmineIChain.setting("base_url") + "/ICSLogin/auth-up"
+            redirect_to RedmineIChain.setting("base_url") + "/ICSLogin/auth-up/"
           else
             user = User.find_or_initialize_by_login(proxy_user)
             if user.new_record?
@@ -56,7 +56,7 @@ module AccountControllerPatch
     def logout_with_ichain
       if RedmineIChain.enabled? && !RedmineIChain.fake? && RedmineIChain.setting("logout_of_ichain_on_logout") == "true"
         logout_user
-        redirect_to RedmineIChain.setting("base_url") + "/ICHAINLogout"
+        redirect_to RedmineIChain.setting("base_url") + "/cmd/ICSLogout/"
       else
         logout_without_ichain
       end

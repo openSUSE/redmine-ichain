@@ -1,6 +1,6 @@
 en:
   login_without_ichain: "Standard Sign In"
-  user_not_found: "%{user} was authenticated but needs to be created and/or activated in Redmine first."
+  ichain_user_not_found: "%{user} was authenticated but needs to be created and/or activated in Redmine first."
 
   ichain:
     plugin_settings: "Redmine iChain Plugin Settings"

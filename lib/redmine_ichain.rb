@@ -19,12 +19,21 @@ module RedmineIChain
     settings && settings.has_key?(name) && settings[name] || nil
   end
 
-  def enabled?
-    setting("enabled") == "true"
+  # For checking the configuration flags in a more convenient way
+  def method_missing(meth, *args, &block)
+    if meth.to_s =~ /^(\w*)\?$/
+      if %w(auto_create_users auto_update_users enabled fake_ichain_server keep_standard_login logout_of_ichain_on_logout match_also_by_mail).include? $1
+        setting($1) == "true"
+      else
+        super
+      end
+    else
+      super
+    end
   end
 
   def fake?
-    setting("fake_ichain_server") == "true"
+    fake_ichain_server?
   end
 
   def extra_user_attributes(request)

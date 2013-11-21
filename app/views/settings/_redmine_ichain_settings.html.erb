@@ -28,6 +28,11 @@ end %>
         <%= check_box_tag 'settings[auto_update_users]', "true", get_setting_val('auto_update_users') %>
     </p>
     <p>
+        <label for="settings_match_also_by_mail"><%= l("ichain.match_also_by_mail") %></label>
+        <%= hidden_field_tag 'settings[match_also_by_mail]', "false" %>
+        <%= check_box_tag 'settings[match_also_by_mail]', "true", get_setting_val('match_also_by_mail') %>
+    </p>
+    <p>
         <label for="settings_auto_user_attributes_map"><%= l("ichain.auto_user_attributes_map") %></label>
         <%= text_field_tag 'settings[auto_user_attributes_map]', get_setting_val('auto_user_attributes_map') %>
     </p>

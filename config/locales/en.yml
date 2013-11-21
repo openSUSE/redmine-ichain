@@ -1,8 +1,8 @@
 en:
   login_without_ichain: "Standard Sign In"
+  user_not_found: "%{user} was authenticated but needs to be created and/or activated in Redmine first."
 
   ichain:
-    user_not_found: "%{user} was authenticated but needs to be created in Redmine first."
     plugin_settings: "Redmine iChain Plugin Settings"
     enabled: "Enabled"
     keep_standard_login: "Keep Standard Login"
@@ -18,3 +18,4 @@ en:
     fake_ichain_server: "Simulate a fake iChain server"
     fake_username: "Username for fake mode"
     fake_auto_user_attributes_map: "Attributes for fake mode"
+    match_also_by_mail: "Match users also by email"

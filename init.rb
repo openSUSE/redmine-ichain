@@ -22,6 +22,7 @@ Redmine::Plugin.register :redmine_ichain do
     :keep_standard_login => true,
     :auto_create_users => false,
     :auto_update_users => false,
+    :match_also_by_mail => false,
     :auto_user_attributes_map => 'firstname=HTTP_X_FIRSTNAME&lastname=HTTP_X_LASTNAME&mail=HTTP_X_EMAIL',
     :logout_of_ichain_on_logout => true,
     # ichain client config settings
